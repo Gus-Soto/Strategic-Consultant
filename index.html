@@ -1,186 +1,453 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategic Consultant</title>
-    <!-- Incluye el CDN de Tailwind CSS -->
+    <title>Análisis de Inversión C-Level: Retroexcavadora LOVOL FB878M</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.2.1/chartjs-plugin-annotation.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
         }
-        /* Desplazamiento suave para los enlaces de anclaje */
-        html {
-            scroll-behavior: smooth;
+        .section-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+            border: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .nav-link {
+            transition: color 0.2s ease-in-out;
+        }
+        .nav-link:hover {
+            color: #2563eb; /* blue-600 */
+        }
+        .insight-highlight {
+            background: linear-gradient(to top, #dbeafe 50%, transparent 50%);
+        }
+        /* Styles for sticky column table */
+        .sticky-col {
+            position: -webkit-sticky;
+            position: sticky;
+            left: 0;
+            z-index: 10;
+            background-color: white;
+            border-right: 1px solid #e2e8f0;
+        }
+        .sticky-header {
+            position: -webkit-sticky;
+            position: sticky;
+            left: 0;
+            z-index: 20;
+            background-color: #f8fafc; /* slate-50 */
+            border-right: 1px solid #e2e8f0;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <!-- Sección de Navegación -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-900">
-                Strategic Consultant
-            </a>
-            <div class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#servicios" class="text-gray-600 hover:text-blue-600 transition-colors">Servicios</a>
-                <a href="#nosotros" class="text-gray-600 hover:text-blue-600 transition-colors">Sobre Nosotros</a>
-                <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition-colors">Contacto</a>
-                <a href="#privacidad" class="text-gray-600 hover:text-blue-600 transition-colors">Privacidad</a>
-            </div>
-            <!-- Botón de menú para móviles -->
-            <button class="md:hidden p-2 text-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Sección Principal (Hero) -->
-        <section class="bg-blue-600 text-white py-20 md:py-32">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
-                    Impulsa tu crecimiento con estrategias inteligentes.
-                </h1>
-                <p class="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto">
-                    Somos expertos en consultoría estratégica, ayudando a empresas como la tuya a alcanzar sus metas y superar desafíos.
-                </p>
-                <a href="#contacto" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-                    Contáctanos Hoy
-                </a>
-            </div>
-        </section>
-
-        <!-- Sección de Servicios -->
-        <section id="servicios" class="py-16 md:py-24">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Tarjeta de Servicio 1 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
-                        <div class="w-16 h-16 bg-blue-100 text-blue-600 flex items-center justify-center mx-auto rounded-full mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Estrategia de Negocios</h3>
-                        <p class="text-gray-600">Desarrollamos planes de negocio sólidos y hojas de ruta claras para el crecimiento sostenible.</p>
-                    </div>
-                    <!-- Tarjeta de Servicio 2 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
-                        <div class="w-16 h-16 bg-blue-100 text-blue-600 flex items-center justify-center mx-auto rounded-full mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4m-4 4l-4 4m-4 4L6 6m-4 4l4-4m-4 4l4 4"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Transformación Digital</h3>
-                        <p class="text-gray-600">Implementamos tecnologías innovadoras para optimizar procesos y mejorar la experiencia del cliente.</p>
-                    </div>
-                    <!-- Tarjeta de Servicio 3 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
-                        <div class="w-16 h-16 bg-blue-100 text-blue-600 flex items-center justify-center mx-auto rounded-full mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.484 9.332 5 7.823 5H5.181a2.862 2.862 0 00-2.863 2.863v11.454A2.862 2.862 0 005.181 21h2.642C9.332 21 10.832 20.516 12 19.747M12 6.253c1.168.769 2.668 1.253 4.177 1.253h2.641a2.862 2.862 0 002.863-2.863V4.864A2.862 2.862 0 0020.179 2h-2.641C15.832 2 14.332 2.484 12 3.253"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Análisis de Mercado</h3>
-                        <p class="text-gray-600">Proporcionamos investigación exhaustiva para que tomes decisiones informadas y estratégicas.</p>
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-lg font-bold">LOVOL FB878M</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#insight-1" class="nav-link text-gray-600 font-medium px-3 py-2 rounded-md text-sm">Oportunidad de Mercado</a>
+                        <a href="#insight-2" class="nav-link text-gray-600 font-medium px-3 py-2 rounded-md text-sm">Ventaja Competitiva</a>
+                        <a href="#equipo" class="nav-link text-gray-600 font-medium px-3 py-2 rounded-md text-sm">Presentación del Equipo</a>
+                        <a href="#insight-3" class="nav-link text-gray-600 font-medium px-3 py-2 rounded-md text-sm">Estrategia Go-To-Market</a>
+                        <a href="#insight-4" class="nav-link text-gray-600 font-medium px-3 py-2 rounded-md text-sm">Data Detallada</a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Sección Sobre Nosotros -->
-        <section id="nosotros" class="bg-gray-100 py-16 md:py-24">
-            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/2">
-                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Equipo+de+Consultores" alt="Equipo de consultores trabajando" class="rounded-lg shadow-lg w-full">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre Nosotros</h2>
-                    <p class="text-lg text-gray-600 mb-4">
-                        En Strategic Consultant, creemos que cada desafío es una oportunidad. Nuestro equipo de expertos trabaja de la mano con nuestros clientes para crear soluciones personalizadas y sostenibles que impulsan el éxito a largo plazo.
-                    </p>
-                    <p class="text-lg text-gray-600">
-                        Nuestra misión es empoderar a las empresas para que alcancen su máximo potencial a través de la innovación, el pensamiento estratégico y la ejecución impecable.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Sección de Contacto -->
-        <section id="contacto" class="py-16 md:py-24">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Conversemos sobre tu futuro</h2>
-                <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Nombre completo</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
-                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3"></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
-                                Enviar Mensaje
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de Política de Privacidad -->
-        <section id="privacidad" class="bg-gray-100 py-16 md:py-24">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Política de Privacidad</h2>
-                <div class="max-w-3xl mx-auto text-gray-600 space-y-6">
-                    <p>
-                        Esta Política de Privacidad describe cómo "Strategic Consultant" recopila, usa y protege la información personal que usted nos proporciona al utilizar nuestro sitio web. Al utilizar nuestro sitio, usted acepta las prácticas descritas en esta política.
-                    </p>
-                    <h3 class="text-xl font-semibold text-gray-800">1. Información que Recopilamos</h3>
-                    <p>
-                        Recopilamos información que usted nos proporciona directamente, como su nombre, dirección de correo electrónico y cualquier mensaje enviado a través de nuestro formulario de contacto.
-                    </p>
-                    <h3 class="text-xl font-semibold text-gray-800">2. Uso de la Información</h3>
-                    <p>
-                        La información personal que recopilamos se utiliza para responder a sus consultas, mejorar nuestros servicios y comunicarnos con usted sobre nuestras ofertas.
-                    </p>
-                    <h3 class="text-xl font-semibold text-gray-800">3. Protección de la Información</h3>
-                    <p>
-                        Implementamos diversas medidas de seguridad para mantener la seguridad de su información personal. No vendemos, intercambiamos ni transferimos su información personal a terceros.
-                    </p>
-                    <h3 class="text-xl font-semibold text-gray-800">4. Cambios a la Política de Privacidad</h3>
-                    <p>
-                        Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Cualquier cambio será publicado en esta página.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Pie de Página (Footer) -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center text-sm">
-            <p>&copy; 2024 Strategic Consultant. Todos los derechos reservados.</p>
-            <p class="mt-2">
-                <a href="#privacidad" class="hover:text-blue-400 transition-colors">Política de Privacidad</a>
-            </p>
         </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- Hero Section -->
+        <header class="text-center py-16">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+                Una Inversión Estratégica para <span class="text-blue-600">Liderar el Segmento de Valor</span> en Maquinaria Pesada.
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                Análisis de la propuesta de introducción de la retroexcavadora LOVOL FB878M al mercado costarricense.
+            </p>
+        </header>
+
+        <!-- Insight 1: Market Opportunity -->
+        <section id="insight-1" class="section-card overflow-hidden">
+            <div class="p-8 md:p-10">
+                <span class="text-sm font-bold text-blue-600 uppercase">Insight 1: Oportunidad de Mercado</span>
+                <h2 class="mt-2 text-3xl font-bold tracking-tight">
+                    Existe una brecha de <span class="insight-highlight">valor no atendida</span> entre las marcas premium y las de bajo costo.
+                </h2>
+                <p class="mt-4 text-slate-600 max-w-3xl">
+                    El gráfico de posicionamiento muestra un mercado polarizado. Los equipos de mayor volumen (JCB, CAT, John Deere) se agrupan en un rango de precio elevado. La FB878M puede capturar el segmento de clientes que buscan rendimiento de alta gama a un precio más accesible, posicionándose en el cuadrante de "Alto Valor Percibido".
+                </p>
+            </div>
+            <div class="bg-slate-50 p-4">
+                <div class="relative h-[70vh]">
+                    <canvas id="bubbleChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insight 2: Competitive Advantage -->
+        <section id="insight-2" class="section-card overflow-hidden">
+            <div class="p-8 md:p-10">
+                <span class="text-sm font-bold text-green-600 uppercase">Insight 2: Ventaja Competitiva</span>
+                <h2 class="mt-2 text-3xl font-bold tracking-tight">
+                    La FB878M no compite en precio, compite en <span class="insight-highlight">valor y rendimiento superior</span>.
+                </h2>
+                <p class="mt-4 text-slate-600 max-w-3xl">
+                    Al analizar las especificaciones clave, la FB878M iguala o supera a los competidores directos en las áreas más críticas para el cliente: potencia y fiabilidad de componentes. No es una alternativa "barata", es una elección inteligente.
+                </p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm whitespace-nowrap">
+                    <thead class="bg-slate-50 text-slate-600 uppercase">
+                        <tr>
+                            <th class="px-6 py-4 font-semibold sticky-header">Característica</th>
+                            <th class="px-6 py-4 font-semibold text-center bg-green-50 text-green-800">LOVOL FB878M</th>
+                            <th class="px-6 py-4 font-semibold text-center">JCB 3CX*</th>
+                            <th class="px-6 py-4 font-semibold text-center">Cat 416</th>
+                            <th class="px-6 py-4 font-semibold text-center">JD 310P</th>
+                            <th class="px-6 py-4 font-semibold text-center">Hidromek 102B</th>
+                            <th class="px-6 py-4 font-semibold text-center">NH B80C</th>
+                            <th class="px-6 py-4 font-semibold text-center">Sany BHL75*</th>
+                            <th class="px-6 py-4 font-semibold text-center">Doosan DB100</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 font-medium sticky-col">Motor</td>
+                            <td class="px-6 py-4 text-center font-bold text-green-700 bg-green-50">WEICHAI WP4.1</td>
+                            <td class="px-6 py-4 text-center text-slate-600">JCB EcoMAX</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Cat C3.6</td>
+                            <td class="px-6 py-4 text-center text-slate-600">JD PowerTech™</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Perkins</td>
+                            <td class="px-6 py-4 text-center text-slate-600">FPT</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Deutz</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Doosan D34</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 font-medium sticky-col">Potencia Neta (HP)</td>
+                            <td class="px-6 py-4 text-center font-bold text-green-700 bg-green-50">99 HP</td>
+                            <td class="px-6 py-4 text-center font-semibold text-slate-700">92 HP</td>
+                            <td class="px-6 py-4 text-center text-slate-600">92 HP</td>
+                            <td class="px-6 py-4 text-center text-slate-600">95 HP</td>
+                            <td class="px-6 py-4 text-center text-slate-600">100 HP</td>
+                            <td class="px-6 py-4 text-center text-slate-600">97 HP</td>
+                            <td class="px-6 py-4 text-center font-semibold text-slate-700">100 HP</td>
+                            <td class="px-6 py-4 text-center text-slate-600">100 HP</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 font-medium sticky-col">Peso Operativo (kg)</td>
+                            <td class="px-6 py-4 text-center font-bold text-green-700 bg-green-50">8,230</td>
+                            <td class="px-6 py-4 text-center text-slate-600">8,136</td>
+                            <td class="px-6 py-4 text-center text-slate-600">7,229</td>
+                            <td class="px-6 py-4 text-center text-slate-600">7,279</td>
+                            <td class="px-6 py-4 text-center text-slate-600">9,100</td>
+                            <td class="px-6 py-4 text-center text-slate-600">8,140</td>
+                            <td class="px-6 py-4 text-center text-slate-600">7,600</td>
+                            <td class="px-6 py-4 text-center text-slate-600">8,700</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 font-medium sticky-col">Prof. Excavación (mm)</td>
+                            <td class="px-6 py-4 text-center font-bold text-green-700 bg-green-50">4,340</td>
+                            <td class="px-6 py-4 text-center text-slate-600">4,240</td>
+                            <td class="px-6 py-4 text-center text-slate-600">4,360</td>
+                            <td class="px-6 py-4 text-center text-slate-600">4,240</td>
+                            <td class="px-6 py-4 text-center text-slate-600">4,460</td>
+                            <td class="px-6 py-4 text-center text-slate-600">4,400</td>
+                            <td class="px-6 py-4 text-center text-slate-600">4,265</td>
+                            <td class="px-6 py-4 text-center text-slate-600">4,400</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 font-medium sticky-col">Sistema Hidráulico</td>
+                            <td class="px-6 py-4 text-center font-bold text-green-700 bg-green-50">Load Sensing</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Centro Abierto</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Load Sensing</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Centro Abierto</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Load Sensing</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Centro Abierto</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Load Sensing</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Centro Abierto</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 font-medium sticky-col">Transmisión</td>
+                            <td class="px-6 py-4 text-center font-bold text-green-700 bg-green-50">CARRARO (4WD)</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Powershift</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Power Shuttle</td>
+                            <td class="px-6 py-4 text-center text-slate-600">PowerShift™</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Powershift</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Powershift</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Powershift</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Powershift</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-6 text-xs text-slate-500 bg-slate-50">
+                *La potencia y especificaciones de los modelos de la competencia pueden variar según la configuración y el mercado. Se utiliza el valor más comúnmente comercializado en la región para una comparación equitativa.
+            </div>
+        </section>
+
+        <!-- New Section: Equipment Presentation -->
+        <section id="equipo" class="section-card overflow-hidden">
+            <div class="p-8 md:p-10">
+                <div class="text-center">
+                    <span class="text-sm font-bold text-amber-600 uppercase">Presentación del Equipo</span>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight">
+                        LOVOL FB878M: Diseñada para la Productividad.
+                    </h2>
+                    <p class="mt-4 text-slate-600 max-w-3xl mx-auto">
+                        Cada componente de la FB878M ha sido seleccionado para maximizar el rendimiento y la rentabilidad del cliente. Estos son los pilares que la definen.
+                    </p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div class="h-full min-h-[500px] md:min-h-[600px]">
+                        <img src="https://en.wlovol.com/upload/images/2024/05/09/825b06c7d01d4b9eb32a84f52e32d663.png" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x1000/f8fafc/0f172a?text=LOVOL+FB878M';" 
+                             alt="Retroexcavadora LOVOL FB878M en un sitio de construcción" 
+                             class="rounded-lg shadow-2xl w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center">
+                                    <i data-lucide="zap" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="ml-4 text-xl font-bold">Potencia y Rendimiento</h3>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 list-disc list-inside">
+                                <li><strong>Motor WEICHAI WP4.1 de 99 HP:</strong> Alto torque y potencia confiable para las aplicaciones más demandantes.</li>
+                                <li><strong>Sistema Hidráulico "Load Sensing":</strong> Flujo hidráulico inteligente que dirige la potencia solo cuando se necesita, resultando en ciclos más rápidos y un menor consumo de combustible.</li>
+                                <li><strong>Fuerza de Desgarre Superior:</strong> Diseñada para una máxima capacidad de excavación y carga, aumentando la productividad por hora.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="ml-4 text-xl font-bold">Eficiencia y Fiabilidad</h3>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 list-disc list-inside">
+                                <li><strong>Transmisión Italiana CARRARO:</strong> Reconocida mundialmente por su durabilidad y cambios suaves, garantiza una operación eficiente y una larga vida útil.</li>
+                                <li><strong>Ejes Reforzados:</strong> Construidos para soportar las condiciones de trabajo más duras, asegurando la máxima disponibilidad del equipo.</li>
+                                <li><strong>Mantenimiento Simplificado:</strong> Puntos de servicio de fácil acceso que reducen el tiempo y costo de las revisiones periódicas.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center">
+                                    <i data-lucide="armchair" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="ml-4 text-xl font-bold">Comodidad y Seguridad</h3>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 list-disc list-inside">
+                                <li><strong>Cabina ROPS/FOPS:</strong> Máxima protección para el operador certificada bajo estándares internacionales.</li>
+                                <li><strong>Visibilidad Panorámica:</strong> Amplias superficies de cristal y un diseño inteligente que ofrecen una vista de 360° del área de trabajo.</li>
+                                <li><strong>Controles Ergonómicos:</strong> Joysticks de pilotaje (opcionales) y una disposición intuitiva de los controles que reducen la fatiga y aumentan la precisión.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insight 3: Go-To-Market Strategy -->
+        <section id="insight-3" class="section-card overflow-hidden">
+             <div class="p-8 md:p-10">
+                <span class="text-sm font-bold text-purple-600 uppercase">Insight 3: Estrategia Go-To-Market</span>
+                <h2 class="mt-2 text-3xl font-bold tracking-tight">
+                    Mitigamos el riesgo de percepción con una estrategia basada en <span class="insight-highlight">confianza y demostración</span>.
+                </h2>
+                <p class="mt-4 text-slate-600 max-w-3xl">
+                    El plan de lanzamiento se enfoca en tres pilares para superar la barrera del "origen" y construir una marca sólida desde el primer día.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-200">
+                <div class="bg-white p-8">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 mb-4">
+                        <i data-lucide="gem" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Calidad Comprobable</h3>
+                    <p class="mt-2 text-slate-600">El marketing se centrará en los componentes de prestigio mundial (WEICHAI, CARRARO) para anclar la calidad en marcas ya reconocidas y respetadas por el mercado.</p>
+                </div>
+                <div class="bg-white p-8">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 mb-4">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Confianza Total</h3>
+                    <p class="mt-2 text-slate-600">Ofreceremos una garantía superior a la media del mercado (2 años / 4,000 hrs) y un soporte postventa premium para eliminar el riesgo percibido en la compra.</p>
+                </div>
+                 <div class="bg-white p-8">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 mb-4">
+                        <i data-lucide="truck" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Prueba en Campo</h3>
+                    <p class="mt-2 text-slate-600">El núcleo de la estrategia de ventas será un programa de demostraciones en vivo en las faenas de los clientes. La máquina demostrará su valor por sí misma.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insight 4: Data Deep Dive -->
+        <section id="insight-4" class="section-card overflow-hidden">
+            <div class="p-8 md:p-10">
+                <span class="text-sm font-bold text-slate-600 uppercase">Insight 4: Data Detallada de Importaciones</span>
+                <h2 class="mt-2 text-3xl font-bold tracking-tight">
+                    Análisis completo de las importaciones que fundamentan nuestra estrategia.
+                </h2>
+                <p class="mt-4 text-slate-600">
+                    Datos correspondientes al período Enero - Junio 2025.
+                </p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-600 uppercase">
+                        <tr>
+                            <th class="px-6 py-3 font-semibold">Marca</th>
+                            <th class="px-6 py-3 font-semibold">Modelo</th>
+                            <th class="px-6 py-3 font-semibold text-right">Cantidad</th>
+                            <th class="px-6 py-3 font-semibold text-right">Valor Promedio ($)</th>
+                            <th class="px-6 py-3 font-semibold text-right">Valor Total CIF ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="import-table-body" class="divide-y divide-slate-200">
+                        <!-- Data injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-10 mt-10 border-t border-slate-200">
+        <p class="text-sm text-slate-500">&copy; 2025. Propuesta de Inversión preparada para el Comité de Dirección por Gustavo Soto.</p>
     </footer>
 
+    <script>
+        lucide.createIcons();
+
+        const importData = [
+            { MARCA: 'JCB', ESTILO: '3CX', CANTIDAD: 42, 'VALOR $ CIF': 2721417.39, 'VALOR PROMEDIO': 64795.65 },
+            { MARCA: 'JCB', ESTILO: '1CX', CANTIDAD: 5, 'VALOR $ CIF': 243568.47, 'VALOR PROMEDIO': 48713.69 },
+            { MARCA: 'CATERPILLAR', ESTILO: '416', CANTIDAD: 32, 'VALOR $ CIF': 2931521.70, 'VALOR PROMEDIO': 91610.05 },
+            { MARCA: 'CATERPILLAR', ESTILO: '420F', CANTIDAD: 6, 'VALOR $ CIF': 178600.12, 'VALOR PROMEDIO': 29766.69 },
+            { MARCA: 'CATERPILLAR', ESTILO: '420', CANTIDAD: 5, 'VALOR $ CIF': 548977.85, 'VALOR PROMEDIO': 109795.57 },
+            { MARCA: 'CATERPILLAR', ESTILO: '424', CANTIDAD: 2, 'VALOR $ CIF': 100756.91, 'VALOR PROMEDIO': 50378.46 },
+            { MARCA: 'CATERPILLAR', ESTILO: '416F2', CANTIDAD: 1, 'VALOR $ CIF': 44860.23, 'VALOR PROMEDIO': 44860.23 },
+            { MARCA: 'JOHN DEERE', ESTILO: '310P', CANTIDAD: 23, 'VALOR $ CIF': 1934147.25, 'VALOR PROMEDIO': 84093.36 },
+            { MARCA: 'JOHN DEERE', ESTILO: '320P', CANTIDAD: 4, 'VALOR $ CIF': 445358.05, 'VALOR PROMEDIO': 111339.51 },
+            { MARCA: 'SANY', ESTILO: 'BHL75', CANTIDAD: 11, 'VALOR $ CIF': 641151.31, 'VALOR PROMEDIO': 58286.48 },
+            { MARCA: 'CASE', ESTILO: '575SV', CANTIDAD: 8, 'VALOR $ CIF': 483054.31, 'VALOR PROMEDIO': 60381.79 },
+            { MARCA: 'CASE', ESTILO: '590SN', CANTIDAD: 1, 'VALOR $ CIF': 88056.25, 'VALOR PROMEDIO': 88056.25 },
+            { MARCA: 'HIDROMEK', ESTILO: 'HMK 102B', CANTIDAD: 5, 'VALOR $ CIF': 362115.63, 'VALOR PROMEDIO': 72423.13 },
+            { MARCA: 'HIDROMEK', ESTILO: 'HMK102B', CANTIDAD: 3, 'VALOR $ CIF': 235489.50, 'VALOR PROMEDIO': 78496.50 },
+            { MARCA: 'HIDROMEK', ESTILO: 'HMK 102', CANTIDAD: 1, 'VALOR $ CIF': 60908.54, 'VALOR PROMEDIO': 60908.54 },
+            { MARCA: 'NEW HOLLAND', ESTILO: 'B80C', CANTIDAD: 7, 'VALOR $ CIF': 453698.14, 'VALOR PROMEDIO': 64814.02 },
+            { MARCA: 'HYUNDAI', ESTILO: 'H940C', CANTIDAD: 5, 'VALOR $ CIF': 363392.84, 'VALOR PROMEDIO': 72678.57 },
+            { MARCA: 'XCMG', ESTILO: 'XC8-C2570', CANTIDAD: 3, 'VALOR $ CIF': 158364.72, 'VALOR PROMEDIO': 52788.24 },
+            { MARCA: 'DOOSAN', ESTILO: 'DB 100', CANTIDAD: 2, 'VALOR $ CIF': 126224.92, 'VALOR PROMEDIO': 63112.46 },
+            { MARCA: 'DOOSAN', ESTILO: 'DB100', CANTIDAD: 1, 'VALOR $ CIF': 68995.97, 'VALOR PROMEDIO': 68995.97 },
+            { MARCA: 'LIUGONG', ESTILO: 'CLG766A', CANTIDAD: 2, 'VALOR $ CIF': 128060.00, 'VALOR PROMEDIO': 64030.00 },
+            { MARCA: 'DAOJ', ESTILO: 'FS40-35', CANTIDAD: 2, 'VALOR $ CIF': 21535.55, 'VALOR PROMEDIO': 10767.78 },
+            { MARCA: 'MANITOU', ESTILO: 'MBL-X 920', CANTIDAD: 2, 'VALOR $ CIF': 80804.56, 'VALOR PROMEDIO': 40402.28 },
+            { MARCA: 'MST', ESTILO: 'M542', CANTIDAD: 2, 'VALOR $ CIF': 126959.84, 'VALOR PROMEDIO': 63479.92 },
+            { MARCA: 'KOMATSU', ESTILO: 'WB93R-5E0', CANTIDAD: 2, 'VALOR $ CIF': 140298.12, 'VALOR PROMEDIO': 70149.06 },
+            { MARCA: 'HENGWANG', ESTILO: 'HW10-20', CANTIDAD: 1, 'VALOR $ CIF': 17130.90, 'VALOR PROMEDIO': 17130.90 },
+            { MARCA: 'FEISITE', ESTILO: 'FS40-35', CANTIDAD: 1, 'VALOR $ CIF': 24643.30, 'VALOR PROMEDIO': 24643.30 }
+        ];
+
+        const tableBody = document.getElementById('import-table-body');
+        importData.sort((a, b) => b['VALOR $ CIF'] - a['VALOR $ CIF']).forEach(item => {
+            const row = `<tr>
+                <td class="px-6 py-4 font-medium whitespace-nowrap">${item.MARCA}</td>
+                <td class="px-6 py-4 text-slate-600 whitespace-nowrap">${item.ESTILO}</td>
+                <td class="px-6 py-4 text-right font-semibold whitespace-nowrap">${item.CANTIDAD.toLocaleString('en-US')}</td>
+                <td class="px-6 py-4 text-right text-slate-600 whitespace-nowrap">${item['VALOR PROMEDIO'].toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+                <td class="px-6 py-4 text-right font-semibold whitespace-nowrap">${item['VALOR $ CIF'].toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+
+        const brandColors = {};
+        const colors = [
+            'rgba(59, 130, 246, 0.7)', 'rgba(234, 179, 8, 0.7)', 'rgba(249, 115, 22, 0.7)',
+            'rgba(16, 185, 129, 0.7)', 'rgba(139, 92, 246, 0.7)', 'rgba(236, 72, 153, 0.7)',
+            'rgba(107, 114, 128, 0.7)', 'rgba(34, 197, 94, 0.7)', 'rgba(217, 70, 239, 0.7)',
+            'rgba(99, 102, 241, 0.7)', 'rgba(245, 158, 11, 0.7)', 'rgba(22, 163, 74, 0.7)',
+            'rgba(219, 39, 119, 0.7)', 'rgba(79, 70, 229, 0.7)', 'rgba(100, 116, 139, 0.7)'
+        ];
+        let colorIndex = 0;
+        importData.forEach(item => {
+            if (!brandColors[item.MARCA]) {
+                brandColors[item.MARCA] = colors[colorIndex % colors.length];
+                colorIndex++;
+            }
+        });
+
+        const totalValorCIF = importData.reduce((sum, item) => sum + item['VALOR $ CIF'], 0);
+        const totalCantidad = importData.reduce((sum, item) => sum + item.CANTIDAD, 0);
+        const weightedAveragePrice = totalValorCIF / totalCantidad;
+
+        const bubbleChartData = {
+            datasets: importData.map(item => ({
+                label: `${item.MARCA} ${item.ESTILO}`,
+                data: [{ x: item.CANTIDAD, y: item['VALOR PROMEDIO'], r: Math.sqrt(item['VALOR $ CIF']) / 20 }],
+                backgroundColor: brandColors[item.MARCA]
+            }))
+        };
+
+        const bubbleCtx = document.getElementById('bubbleChart').getContext('2d');
+        new Chart(bubbleCtx, {
+            type: 'bubble',
+            data: bubbleChartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#0f172a', titleFont: { size: 14, weight: 'bold' }, bodyFont: { size: 12 }, padding: 12, cornerRadius: 6,
+                        callbacks: {
+                            label: function(context) {
+                                const itemData = importData.find(d => `${d.MARCA} ${d.ESTILO}` === context.dataset.label);
+                                return `${context.dataset.label}: Cantidad=${context.raw.x}, Precio Promedio=$${context.raw.y.toFixed(2)}, Valor Total=$${(itemData ? itemData['VALOR $ CIF'] : 0).toFixed(2)}`;
+                            }
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line', yMin: weightedAveragePrice, yMax: weightedAveragePrice, borderColor: 'rgb(239, 68, 68)', borderWidth: 2, borderDash: [6, 6],
+                                label: {
+                                    content: `Precio Promedio Ponderado: $${weightedAveragePrice.toFixed(2)}`, display: true, position: 'end', backgroundColor: 'rgba(239, 68, 68, 0.8)',
+                                    font: { weight: 'bold', size: 12 }, color: 'white', padding: 6, borderRadius: 4
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Cantidad Importada (Unidades)', font: { size: 14, weight: '500' }, color: '#475569' }, grid: { color: '#e2e8f0' } },
+                    y: { title: { display: true, text: 'Precio Promedio ($)', font: { size: 14, weight: '500' }, color: '#475569' }, grid: { color: '#e2e8f0' } }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
+
